@@ -10,11 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("student")
 public class StudentController {
     /*
     * corresponding ULR: http://localhost:8080/student
     * */
-    @GetMapping("/student")
+    @GetMapping("")
     public ResponseEntity<Student> getStudent() {
         Student student = new Student("Raj", "Fadatare", 1);
         return new ResponseEntity<>(student, HttpStatus.OK);
@@ -36,7 +37,7 @@ public class StudentController {
     /*
      * corresponding ULR: http://localhost:8080/student/{id}
      * */
-    @GetMapping("student/{id}/{firstname}/{lastname}")
+    @GetMapping("{id}/{firstname}/{lastname}")
     public ResponseEntity<Student> studentWithPathVariable(@PathVariable int id,
                                            @PathVariable String firstname,
                                            @PathVariable String lastname) {
@@ -69,7 +70,7 @@ public class StudentController {
     /*
      * corresponding ULR: http://localhost:8080/student/3/update
      * */
-    @PutMapping("student/{id}/update")
+    @PutMapping("{id}/update")
     public ResponseEntity<Student> updateExistingStudent(@PathVariable int id, @RequestBody Student student) {
         student.setId(id);
         System.out.println(student);
@@ -79,7 +80,7 @@ public class StudentController {
     /*
      * corresponding ULR: http://localhost:8080/student/6/delete
      * */
-    @DeleteMapping("/student/{id}/delete")
+    @DeleteMapping("{id}/delete")
     public ResponseEntity<String> deleteExistingStudent(@PathVariable int id) {
         System.out.println("deleted" + id);
         return new ResponseEntity<>("student" + id + "deleted", HttpStatus.OK);
