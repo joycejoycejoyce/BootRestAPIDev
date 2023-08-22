@@ -4,6 +4,8 @@ package net.javaguides.springbootrestapi.repository;
 import net.javaguides.springbootrestapi.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 /*
 * JPARepository<Entity type, primary key type>
 
@@ -13,4 +15,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 * SimpleJpaRespotory 已经被 annotate 了 @Repository + @Transactional
 * */
 public interface UserRepository extends JpaRepository<User, Long> {
+
+    Optional<User> findByEmail(String email);
 }
