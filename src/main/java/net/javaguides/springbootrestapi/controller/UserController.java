@@ -1,5 +1,6 @@
 package net.javaguides.springbootrestapi.controller;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import net.javaguides.springbootrestapi.dto.UserDTO;
 import net.javaguides.springbootrestapi.entity.User;
@@ -26,7 +27,8 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<UserDTO> createUser(@RequestBody UserDTO user) {
+    /*@Valid annotation 表明了要 enable validation 对这个 UserDTO */
+    public ResponseEntity<UserDTO> createUser(@Valid @RequestBody UserDTO user) {
         UserDTO saved = userService.createUser(user);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
@@ -45,7 +47,7 @@ public class UserController {
     // http://localhost:8080/api/users/1
     @PutMapping("{id}")
     public ResponseEntity<UserDTO> updateUser(@PathVariable Long id,
-                                              @RequestBody UserDTO user) {
+                                              @Valid @RequestBody UserDTO user) {
         user.setId(id);
         UserDTO updateUser = userService.updateUser(user);
         return new ResponseEntity<>(updateUser, HttpStatus.OK);
