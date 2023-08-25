@@ -25,9 +25,9 @@ import java.util.Map;
 * */
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-        @ExceptionHandler(ResourceNotFoundException.class)
-    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(ResourceNotFoundException exception, WebRequest webRequest) {
-        ErrorDetails details = new ErrorDetails(LocalDateTime.now(),
+        @ExceptionHandler(net.javaguides.springbootrestapi.exception.ResourceNotFoundException.class)
+    public ResponseEntity<net.javaguides.springbootrestapi.exception.ErrorDetails> handleResourceNotFoundException(net.javaguides.springbootrestapi.exception.ResourceNotFoundException exception, WebRequest webRequest) {
+        net.javaguides.springbootrestapi.exception.ErrorDetails details = new net.javaguides.springbootrestapi.exception.ErrorDetails(LocalDateTime.now(),
                 exception.getMessage(),
                 webRequest.getDescription(false),
                 "USER_NOT_FOUND");
@@ -35,9 +35,9 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(details, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(EmailAlreadyExistsException.class)
-    public ResponseEntity<ErrorDetails> handleEmailAlreadyExistsException(EmailAlreadyExistsException exception, WebRequest webRequest) {
-            ErrorDetails details = new ErrorDetails(
+    @ExceptionHandler(net.javaguides.springbootrestapi.exception.EmailAlreadyExistsException.class)
+    public ResponseEntity<net.javaguides.springbootrestapi.exception.ErrorDetails> handleEmailAlreadyExistsException(net.javaguides.springbootrestapi.exception.EmailAlreadyExistsException exception, WebRequest webRequest) {
+            net.javaguides.springbootrestapi.exception.ErrorDetails details = new net.javaguides.springbootrestapi.exception.ErrorDetails(
                     LocalDateTime.now(),
                     exception.getMessage(),
                     webRequest.getDescription(false),
@@ -49,8 +49,8 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 
     /**/
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ErrorDetails> handleGlobalException(Exception exception, WebRequest webRequest) {
-        ErrorDetails errorDetails = new ErrorDetails(
+    public ResponseEntity<net.javaguides.springbootrestapi.exception.ErrorDetails> handleGlobalException(Exception exception, WebRequest webRequest) {
+        net.javaguides.springbootrestapi.exception.ErrorDetails errorDetails = new net.javaguides.springbootrestapi.exception.ErrorDetails(
                 LocalDateTime.now(),
                 exception.getMessage(),
                 webRequest.getDescription(false),

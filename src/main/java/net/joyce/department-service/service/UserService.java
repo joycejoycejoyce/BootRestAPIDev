@@ -2,7 +2,6 @@ package net.javaguides.springbootrestapi.service;
 
 
 import net.javaguides.springbootrestapi.dto.UserDTO;
-import net.javaguides.springbootrestapi.entity.User;
 
 import java.util.List;
 

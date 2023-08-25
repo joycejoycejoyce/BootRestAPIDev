@@ -3,19 +3,12 @@ package net.javaguides.springbootrestapi.controller;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import net.javaguides.springbootrestapi.dto.UserDTO;
-import net.javaguides.springbootrestapi.entity.User;
-import net.javaguides.springbootrestapi.exception.ErrorDetails;
-import net.javaguides.springbootrestapi.exception.ResourceNotFoundException;
-import net.javaguides.springbootrestapi.mapper.UserMapper;
 import net.javaguides.springbootrestapi.service.UserService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.context.request.WebRequest;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
