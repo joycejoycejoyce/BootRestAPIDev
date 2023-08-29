@@ -1,7 +1,8 @@
-package net.javaguides.springbootrestapi.repository;
+package net.joyce.departmentService.repository;
 
 
-import net.javaguides.springbootrestapi.entity.User;
+
+import net.joyce.departmentService.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

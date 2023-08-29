@@ -1,7 +1,8 @@
-package net.javaguides.springbootrestapi.mapper;
+package net.joyce.departmentService.mapper;
 
-import net.javaguides.springbootrestapi.dto.UserDTO;
-import net.javaguides.springbootrestapi.entity.User;
+
+import net.joyce.departmentService.dto.UserDTO;
+import net.joyce.departmentService.entity.User;
 
 public class UserMapper {
     public static UserDTO mapToUserDTO(User user) {

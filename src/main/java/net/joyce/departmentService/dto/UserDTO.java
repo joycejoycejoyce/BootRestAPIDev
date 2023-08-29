@@ -1,4 +1,4 @@
-package net.javaguides.springbootrestapi.dto;
+package net.joyce.departmentService.dto;
 // 用来在 client <-> server 之间传递信息
 
 import jakarta.validation.constraints.Email;

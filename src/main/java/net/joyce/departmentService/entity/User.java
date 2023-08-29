@@ -1,4 +1,4 @@
-package net.javaguides.springbootrestapi.entity;
+package net.joyce.departmentService.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

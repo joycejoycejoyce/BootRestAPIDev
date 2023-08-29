@@ -1,4 +1,4 @@
-package net.javaguides.springbootrestapi;
+package net.joyce.departmentService;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;

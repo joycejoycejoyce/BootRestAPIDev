@@ -1,10 +1,10 @@
-package net.javaguides.springbootrestapi.controller;
+package net.joyce.departmentService.controller;
 
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import net.javaguides.springbootrestapi.dto.UserDTO;
-import net.javaguides.springbootrestapi.service.UserService;
 
+import net.joyce.departmentService.dto.UserDTO;
+import net.joyce.departmentService.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

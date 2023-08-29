@@ -1,4 +1,4 @@
-package net.javaguides.springbootrestapi.exception;
+package net.joyce.departmentService.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

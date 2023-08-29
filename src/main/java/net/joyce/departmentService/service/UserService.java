@@ -1,7 +1,9 @@
-package net.javaguides.springbootrestapi.service;
+package net.joyce.departmentService.service;
 
 
-import net.javaguides.springbootrestapi.dto.UserDTO;
+
+
+import net.joyce.departmentService.dto.UserDTO;
 
 import java.util.List;
 

@@ -1,13 +1,15 @@
-package net.javaguides.springbootrestapi.service.impl;
+package net.joyce.departmentService.service.impl;
 
 import lombok.AllArgsConstructor;
-import net.javaguides.springbootrestapi.dto.UserDTO;
-import net.javaguides.springbootrestapi.entity.User;
-import net.javaguides.springbootrestapi.exception.EmailAlreadyExistsException;
-import net.javaguides.springbootrestapi.exception.ResourceNotFoundException;
-import net.javaguides.springbootrestapi.mapper.UserMapper;
-import net.javaguides.springbootrestapi.repository.UserRepository;
-import net.javaguides.springbootrestapi.service.UserService;
+
+
+import net.joyce.departmentService.dto.UserDTO;
+import net.joyce.departmentService.entity.User;
+import net.joyce.departmentService.exception.EmailAlreadyExistsException;
+import net.joyce.departmentService.exception.ResourceNotFoundException;
+import net.joyce.departmentService.mapper.UserMapper;
+import net.joyce.departmentService.repository.UserRepository;
+import net.joyce.departmentService.service.UserService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

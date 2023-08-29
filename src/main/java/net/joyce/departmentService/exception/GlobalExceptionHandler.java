@@ -1,4 +1,5 @@
-package net.javaguides.springbootrestapi.exception;
+
+package net.joyce.departmentService.exception;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -22,12 +23,15 @@ import java.util.Map;
 *   在某一个 controller 下面
 * @ControllerAdvice:
 *   这个 annotation 能够 handle exception globally
-* */
+*
+*/
+
+
 @ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
-        @ExceptionHandler(net.javaguides.springbootrestapi.exception.ResourceNotFoundException.class)
-    public ResponseEntity<net.javaguides.springbootrestapi.exception.ErrorDetails> handleResourceNotFoundException(net.javaguides.springbootrestapi.exception.ResourceNotFoundException exception, WebRequest webRequest) {
-        net.javaguides.springbootrestapi.exception.ErrorDetails details = new net.javaguides.springbootrestapi.exception.ErrorDetails(LocalDateTime.now(),
+        @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<ErrorDetails> handleResourceNotFoundException(ResourceNotFoundException exception, WebRequest webRequest) {
+        ErrorDetails details = new ErrorDetails(LocalDateTime.now(),
                 exception.getMessage(),
                 webRequest.getDescription(false),
                 "USER_NOT_FOUND");
@@ -35,9 +39,20 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(details, HttpStatus.NOT_FOUND);
     }
 
-    @ExceptionHandler(net.javaguides.springbootrestapi.exception.EmailAlreadyExistsException.class)
-    public ResponseEntity<net.javaguides.springbootrestapi.exception.ErrorDetails> handleEmailAlreadyExistsException(net.javaguides.springbootrestapi.exception.EmailAlreadyExistsException exception, WebRequest webRequest) {
-            net.javaguides.springbootrestapi.exception.ErrorDetails details = new net.javaguides.springbootrestapi.exception.ErrorDetails(
+    @ExceptionHandler(DepartmentNotFoundException.class)
+    public ResponseEntity<ErrorDetails> handleDepartmentNotFoundException(DepartmentNotFoundException ex, WebRequest webRequest) {
+            ErrorDetails errorDetails = new ErrorDetails(
+                 LocalDateTime.now(),
+                    ex.getMessage(),
+                    webRequest.getDescription(false),
+                    "Department Not Found"
+            );
+            return new ResponseEntity<>(errorDetails, HttpStatus.NOT_FOUND);
+    }
+
+    @ExceptionHandler(EmailAlreadyExistsException.class)
+    public ResponseEntity<ErrorDetails> handleEmailAlreadyExistsException(EmailAlreadyExistsException exception, WebRequest webRequest) {
+            ErrorDetails details = new ErrorDetails(
                     LocalDateTime.now(),
                     exception.getMessage(),
                     webRequest.getDescription(false),
@@ -47,10 +62,11 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     }
 
 
-    /**/
+
+
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<net.javaguides.springbootrestapi.exception.ErrorDetails> handleGlobalException(Exception exception, WebRequest webRequest) {
-        net.javaguides.springbootrestapi.exception.ErrorDetails errorDetails = new net.javaguides.springbootrestapi.exception.ErrorDetails(
+    public ResponseEntity<ErrorDetails> handleGlobalException(Exception exception, WebRequest webRequest) {
+        ErrorDetails errorDetails = new ErrorDetails(
                 LocalDateTime.now(),
                 exception.getMessage(),
                 webRequest.getDescription(false),
@@ -75,3 +91,5 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
     }
 }
+
+
