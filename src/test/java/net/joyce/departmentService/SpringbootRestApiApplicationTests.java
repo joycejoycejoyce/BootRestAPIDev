@@ -1,4 +1,4 @@
-package net.javaguides.springbootrestapi;
+package net.joyce.departmentService;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
